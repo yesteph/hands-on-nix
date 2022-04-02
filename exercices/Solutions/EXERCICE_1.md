@@ -1,4 +1,4 @@
-# Exercice 1
+# Exercice 1 - Installation de paquets
 
 Dans cet exercice, nous allons installer des paquets qui sont nécessaires au bon fonctionnement de nos applications.
 
@@ -64,4 +64,9 @@ pip install -r requirements.txt
 Lancer l'application Charlie avec Python3:
 ```bash
 python3 charlie.py
+```
+
+Ouvrir une deuxième session SSH et vérifier l'accès à l'application charlie à l'aide de l'outil curl
+```bash
+curl http://localhost:9090
 ```

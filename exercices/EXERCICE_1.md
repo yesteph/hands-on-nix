@@ -1,4 +1,4 @@
-# Exercice 1
+# Exercice 1 - Installation de paquets
 
 Dans cet exercice, nous allons installer des paquets qui sont nécessaires au bon fonctionnement de nos applications.
 
@@ -17,3 +17,5 @@ Une fois les paquets installés, cloner votre fork Github.
 Installer les dépendances de l'application charlie à l'aide de l'utilitaire pip.
 
 Lancer l'application charlie avec Python3
+
+Ouvrir une deuxième session SSH et vérifier l'accès à l'application charlie à l'aide de l'outil curl
