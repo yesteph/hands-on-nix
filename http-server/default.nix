@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.buildGoModule rec {
-  pname = "http-server";
+  pname = "go-http-server";
   version = "0.1.0";
 
   src = pkgs.fetchFromGitHub {
