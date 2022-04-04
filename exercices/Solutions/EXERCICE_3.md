@@ -1,6 +1,6 @@
 # Exercice 3 - Channels Nix
 
-Dans cet exercice, nous allons essayer de comprendre comment fonctionnent les channels Nix.
+Dans cet exercice, nous allons comprendre comment fonctionnent les channels Nix.
 
 ## Lister les channels courants
 

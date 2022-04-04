@@ -28,7 +28,11 @@ Consulter la liste des dérivations installées:
 ls -l /nix/store
 ```
 
-Différents types de fichiers sont présents. Regarder leur contenu. Que remarquez vous ?
+Différents types de fichiers sont présents pour permettre la gestion de paquets par Nix.
+
+Vous trouverez notamment les dossiers `coreutils`, `gcc` et `nixpkgs`.
+
+Regarder leur contenu. Que remarquez vous ?
 
 ## Nix-env
 

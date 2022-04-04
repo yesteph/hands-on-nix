@@ -11,7 +11,7 @@ nix-env -iA nixpkgs.direnv
 
 Configurer nix avec direnv pour Bobby
 ```bash
-echo “use_nix” >> bobby/.envrc
+echo "use_nix" >> bobby/.envrc
 
 eval "$(direnv hook bash)"
 

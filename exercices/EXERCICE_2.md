@@ -14,6 +14,11 @@ Suivre les liens symboliques et inspecter le contenu du répertoire associé.
 
 ## Installation d'un nouveau paquet
 
+L'installation Python actuelle pointe sur python3:
+```bash
+python --version
+```
+
 Ensuite, faisons une installation de Python 2 dans notre profil courant:
 ```bash
 nix-env -iA nixpkgs.python2
