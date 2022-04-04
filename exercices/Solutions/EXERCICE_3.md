@@ -18,7 +18,7 @@ Que remarque-t-on ? Pourquoi ?
 
 Nous allons maintenant ajouter un nouveau channel
 ```bash
-nix-channel https://nixos.org/channels/nixos-21.11 nixos
+nix-channel --add https://nixos.org/channels/nixos-21.11 nixos
 nix-channel --update
 ```
 
