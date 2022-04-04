@@ -174,7 +174,7 @@ nix repl>
 # L'attribute set retourne 16 000 entrées, dont coreutils
 :l <nixpkgs>
 # Usage de la commande "touch" depuis le paquet "coreutils"
-d = derivation { name = "myname"; builder = "${coreutils}/bin/true"; system = builtins.currentSystem; }
+derivation { name = "myname"; builder = "${coreutils}/bin/true"; system = builtins.currentSystem; }
 ```
 
 Cela donne un nouveau fichier de derivation, pointant sur la dérivation coreutils résolue en local à l'instant T.
