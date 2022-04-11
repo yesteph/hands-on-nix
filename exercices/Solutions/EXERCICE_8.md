@@ -32,6 +32,13 @@ Inspecter les actions effectuées par Nix ainsi que la structure de ce qui est p
 
 Lancer l'application à partir de l'artifact créé et vérifier son bon fonctionnement.
 
+```bash
+cd /nix/store/xxxxxxxxxxxxxxxxx/bin
+./charlie.py&
+
+curl http://localhost:9090
+```
+
 
 ## Build Go
 
@@ -48,7 +55,12 @@ nix-build
 
 La commande échoue. Pourquoi ?
 
+> La commande échoue car Nix à besoin du hash SHA256 du code source pour valider son contenu.
+
 Régler le problème et relancer le build.
+
+> Remplir le champ sha256 avec la valeur de la sortie de la commande
+> Le problème survient à nouveau mais pour les gomodules. Remplir cette fois-ci le champ vendorSha256.
 
 Une fois le build réussi, lancer l'application à partir du binaire créé et vérifier son bon fonctionnement.
 
