@@ -1,3 +1,3 @@
 with (import <nixpkgs> {});
 
-mkShell { buildInputs = [ python27Full ]; }
+mkShell { buildInputs = [ python39 python39Packages.pip ]; }

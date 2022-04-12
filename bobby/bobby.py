@@ -5,8 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    print "I'm a Python 2 app"
-    return "Hello Devoxx! I'm Bobby, a Python 2 app"
+    print("I'm a Python 3.9 app")
+    return "Hello Devoxx! I'm Bobby, a Python 3.9 app"
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080)

@@ -14,9 +14,9 @@ Pour vous aider, vous pouvez rechercher les paquets disponibles par deux biais:
 
 Une fois les paquets installés, cloner votre fork Github.
 
-Installer les dépendances de l'application charlie à l'aide de l'utilitaire pip.
+Installer les dépendances de l'application bobby à l'aide de l'utilitaire pip.
 
-Lancer l'application charlie avec Python3
+Lancer l'application bobby avec Python3
 
 ## Solution
 
@@ -25,9 +25,9 @@ Rechercher les dérivations disponibles
 nix-env -qaP python3
 ```
 
-Installer Python 3.10 et pip
+Installer Python 3.9 et pip
 ```bash
-nix-env -iA nixpkgs.python310 nixpkgs.python310Packages.pip
+nix-env -iA nixpkgs.python39 nixpkgs.python39Packages.pip
 ```
 
 Installer Git
@@ -47,7 +47,7 @@ nix-env -iA nixpkgs.terraform
 
 Il est également possible de tout faire en une seule commande
 ```bash
-nix-env -iA nixpkgs.python310 nixpkgs.python310Packages.pip nixpkgs.git nixpkgs.jq nixpkgs.terraform
+nix-env -iA nixpkgs.python39 nixpkgs.python39Packages.pip nixpkgs.git nixpkgs.jq nixpkgs.terraform
 ```
 
 Cloner son fork
@@ -55,18 +55,18 @@ Cloner son fork
 git clone https://github.com/<USER>/hands-on-nix.git
 ```
 
-Installer les dépendances de l'application charlie à l'aide de pip
+Installer les dépendances de l'application bobby à l'aide de pip
 ```bash
-cd charlie
+cd bobby
 pip install -r requirements.txt
 ```
 
-Lancer l'application Charlie avec Python3:
+Lancer l'application bobby avec Python3:
 ```bash
-python3 charlie.py
+python3 bobby.py
 ```
 
-Ouvrir une deuxième session SSH et vérifier l'accès à l'application charlie à l'aide de l'outil curl
+Ouvrir une deuxième session SSH et vérifier l'accès à l'application bobby à l'aide de l'outil curl
 ```bash
 curl http://localhost:9090
 ```
