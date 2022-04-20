@@ -28,7 +28,7 @@ Lister à nouveau les channels pour voir la différence
 ## Recherche de paquet
 
 Nous pouvons maintenant chercher des paquets dans des channels spécifiques.
-Voir la command `nix-env -qaP <PACKAGE> -f '<CHANNEL_NAME>'`
+Voir la commande `nix-env -qaP <PACKAGE> -f '<CHANNEL_NAME>'`
 
 Chercher les versions disponibles du paquet Terraform dans deux channels différents.
 

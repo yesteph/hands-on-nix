@@ -32,7 +32,8 @@ Adapter ce fichier pour charger les dépendances définies dans `nix/sources.jso
 let
   pkgs = import sources.nixpkgs { }; # define variable for nixpkgs
   inputs = [
-      pkgs.python39
+    pkgs.python310
+    pkgs.python310Packages.pip
   ];
 in
 pkgs.mkShell { buildInputs = inputs; }

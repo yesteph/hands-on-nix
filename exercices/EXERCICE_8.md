@@ -6,13 +6,13 @@ Pour cela, nous effectuerons un build d'une application Python, d'une applicatio
 
 ## Build Python
 
-Pour que Nix puisse build l'application charlie, il est nécessaire de lui donner des instructions.
+Pour que Nix puisse build l'application bobby, il est nécessaire de lui donner des instructions.
 
-Pour cela, créer le fichier `charlie/default.nix` avec le contenu suivant
+Pour cela, créer le fichier `bobby/default.nix` avec le contenu suivant
 ```bash
 { pkgs ? import <nixpkgs> {} }:
 pkgs.python3Packages.buildPythonApplication {
-  pname = "charlie";
+  pname = "bobby";
   version = "1.0";
   src = ./.;
   propagatedBuildInputs = [ <DEPENDANCE_PYTHON> ];
@@ -23,7 +23,7 @@ Ce fichier est incomplet. Veillez à le compléter avant de passer à la suite.
 
 Ensuite, lancer le build de l'application
 ```bash
-cd charlie
+cd bobby
 
 nix-build
 ```
@@ -62,8 +62,16 @@ Observer le ficher `http-server/docker.nix` et décrire les actions effectuées 
 Lancer le build Docker de l'application:
 ```bash
 nix-build docker.nix
-````
+```
 
 Analyser la structure de l'image et l'artifact produit par le build.
 
-Tester son bon fonctionnement en installant Podman et en lançant un conteneur à partir de cette image.
+Installer Podman
+```bash
+# Installer Podman
+sudo -i
+apt update
+apt install podman
+```
+
+Tester son bon fonctionnement en utilisant Podman et en lançant un conteneur à partir de cette image.

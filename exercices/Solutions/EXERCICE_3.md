@@ -48,3 +48,6 @@ terraform       terraform-1.1.7
 
 
 Que pouvons nous noter ?
+
+> En fonction du channel, les versions d'un même paquet peuvent varier.
+> Le paquet peut porter le même nom mais son contenu peut-être totalement diffénret.

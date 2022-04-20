@@ -6,16 +6,16 @@ Pour cela, nous effectuerons un build d'une application Python, d'une applicatio
 
 ## Build Python
 
-Pour que Nix puisse build l'application charlie, il est nécessaire de lui donner des instructions.
+Pour que Nix puisse build l'application bobby, il est nécessaire de lui donner des instructions.
 
-Pour cela, créer le fichier `charlie/default.nix` avec le contenu suivant
+Pour cela, créer le fichier `bobby/default.nix` avec le contenu suivant
 ```bash
 { pkgs ? import <nixpkgs> {} }:
 pkgs.python3Packages.buildPythonApplication {
-  pname = "charlie";
+  pname = "bobby";
   version = "1.0";
   src = ./.;
-  propagatedBuildInputs = [ <DEPENDANCE_PYTHON> ];
+  propagatedBuildInputs = [ pkgs.python39Packages.flask ];
 }
 ```
 
@@ -23,7 +23,7 @@ Ce fichier est incomplet. Veillez à le compléter avant de passer à la suite.
 
 Ensuite, lancer le build de l'application
 ```bash
-cd charlie
+cd bobby
 
 nix-build
 ```
@@ -34,7 +34,7 @@ Lancer l'application à partir de l'artifact créé et vérifier son bon fonctio
 
 ```bash
 cd /nix/store/xxxxxxxxxxxxxxxxx/bin
-./charlie.py&
+./bobby.py&
 
 curl http://localhost:9090
 ```
@@ -80,18 +80,21 @@ Analyser la structure de l'image et l'artifact produit par le build.
 ```bash
 mkdir /tmp/http-server
 
-tar xvf /nix/store/cfag2q4w5agn4d8rgv5a9xsgllsh3z9c-http-server.tar.gz -C /tmp/http-server
+tar xvf /nix/store/4nl65r71x29qbcc3vgbnjfrq6m54mydx-http-server.tar.gz -C /tmp/http-server
 
 ls /tmp/http-server
 ```
 
-Tester son bon fonctionnement en installant Podman et en lançant un conteneur à partir de cette image.
+Tester son bon fonctionnement en utilisant Podman et en lançant un conteneur à partir de cette image.
 ```bash
 # Installer Podman
-nix-env -iA nixpkgs.podman
+#nix-env -iA nixpkgs.podman
+sudo -i
+apt update
+apt install podman
 
 # Charger l'image docker
-podman load -i /nix/store/cfag2q4w5agn4d8rgv5a9xsgllsh3z9c-http-server.tar.gz
+podman load -i /nix/store/4nl65r71x29qbcc3vgbnjfrq6m54mydx-http-server.tar.gz
 
 # Lister les images
 podman image ls

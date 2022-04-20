@@ -6,7 +6,7 @@ En utilisant les commandes vues précédemment, installer les outils suivants:
 - Python 3.9 et pip
 - Git
 - Jq
-- Terraform (1.1.7)
+- Terraform (0.15)
 
 Pour vous aider, vous pouvez rechercher les paquets disponibles par deux biais:
 - L'interface de recherche nixos : https://search.nixos.org

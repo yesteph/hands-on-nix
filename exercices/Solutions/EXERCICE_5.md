@@ -11,7 +11,7 @@ nix-env -iA nixpkgs.direnv
 
 Configurer nix avec direnv pour Bobby
 ```bash
-echo “use_nix” >> bobby/.envrc
+echo "use_nix" >> bobby/.envrc
 
 eval "$(direnv hook bash)"
 
@@ -23,7 +23,7 @@ cd bobby && direnv allow
 Faites maintenant le même exercice pour l'application `charlie`.
 
 ```bash
-echo “use_nix” >> charlie/.envrc
+echo "use_nix" >> charlie/.envrc
 
 cd charlie && direnv allow
 ```
@@ -32,14 +32,14 @@ Une fois ceci fait, vérifier la version courante de Python et sa localisation e
 
 ```bash
 # In charlie directory
-python --version # Python 3
+python --version # Python 3.10
 which python
 
 cd ../bobby
-python --version # Python 2
+python --version # Python 3.9
 which python
 
 cd
-python --version # Python 3 (système)
+python --version # Python 3 (profil Nix)
 which python
 ```

@@ -24,7 +24,7 @@ cd charlie
 
 # vim shell.nix
 with (import <nixpkgs> {});
-mkShell { buildInputs = [ python39 python39Packages.pip ]; }
+mkShell { buildInputs = [ python310 python310Packages.pip ]; }
 
 
 nix-shell
@@ -40,4 +40,4 @@ python charlie.py
 ```
 
 
->**Attention:** la version de Python requise est différente
+>**Attention:** la version de Python requise est différente (Python 3.10)
