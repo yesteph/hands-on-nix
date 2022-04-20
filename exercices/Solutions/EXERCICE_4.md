@@ -24,7 +24,7 @@ cd charlie
 
 # vim shell.nix
 with (import <nixpkgs> {});
-mkShell { buildInputs = [ python39 ]; }
+mkShell { buildInputs = [ python39 python39Packages.pip ]; }
 
 
 nix-shell

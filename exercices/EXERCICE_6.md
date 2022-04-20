@@ -34,14 +34,3 @@ Comme vous avez pu le remarquer, la dépendance nixpkgs, pointe sur une branche 
 Afin d'avoir les dérivations les plus récentes, nous souhaitons référencer la branche master.
 
 Mettre à jour la dépendance nixpkgs pour utliser la branche master du dépôt.
-
-
-## Ajout d'une nouvelle dépendance
-
-Maintenant que nous avons configuré notre nix shell pour utliser Niv, nous allons ajouter une nouvelle dépendance.
-
-Ajouter le dépôt `nix-community/NUR` comme dépendance de notre application.
-
-Ajouter le programme `hello-nur` issue de ce dépôt dans le nix shell. Vous pouvez vous aider de [ce site](https://nur.nix-community.org/) pour trouver le package associé.
-
-Vérifiez sa bonne installation en lançant la commande `hello`.
