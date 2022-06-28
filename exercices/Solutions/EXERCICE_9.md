@@ -24,6 +24,8 @@ nix-env -iA cachix -f https://cachix.org/api/v1/install
 
 Ensuite, il faut la configurer pour utiliser votre cache
 ```bash
+# Autoriser l'utilisateur courant à configurer un cache
+echo "trusted-users = root admin" | sudo tee -a /etc/nix/nix.conf && sudo pkill nix-daemon
 # Configurer le cache
 cachix use <MON_CACHE>
 

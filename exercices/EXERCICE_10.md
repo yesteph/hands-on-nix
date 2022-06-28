@@ -30,7 +30,7 @@ jobs:
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix-build http-server
-    - run: cd http-server && nix-shell --run "echo HTTP Server successfully built and pushed to cache !"
+    - run: nix-shell http-server --run "echo HTTP Server successfully built and pushed to cache !"
 ```
 
 Commit ce fichier et pousser le sur la branche main. Votre pipeline Github Action devrait se lancer.
