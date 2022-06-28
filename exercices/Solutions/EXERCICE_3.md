@@ -16,9 +16,10 @@ Que remarque-t-on ? Pourquoi ?
 ## Ajouter un nouveau channel
 
 
-Nous allons maintenant ajouter un nouveau channel
+Nous allons maintenant ajouter deux nouveaux channels
 ```bash
-nix-channel --add https://nixos.org/channels/nixos-21.11 nixos
+nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
 nix-channel --update
 ```
 
@@ -31,19 +32,19 @@ Nous pouvons maintenant chercher des paquets dans des channels spécifiques.
 
 Chercher les versions disponibles du paquet Terraform dans deux channels différents.
 ```bash
-nix-env -f '<nixos>' -qaP 'terraform*'
-terraform_0_12   terraform-0.12.31
-terraform_0_13   terraform-0.13.7
-terraform_0_14   terraform-0.14.11
-terraform_0_15   terraform-0.15.5
-terraform        terraform-1.0.11
-terraform_1_0_0  terraform-1.0.11
-
-nix-env -f '<nixpkgs>' -qaP 'terraform*'
-terraform_0_13  terraform-0.13.7
-terraform_0_14  terraform-0.14.11
-terraform_0_15  terraform-0.15.5
-terraform       terraform-1.1.7
+nix-env -qaP terraform
+nixos.terraform_0_13            terraform-0.13.7
+nixpgs-unstable.terraform_0_13  terraform-0.13.7
+nixpkgs.terraform_0_13          terraform-0.13.7
+nixos.terraform_0_14            terraform-0.14.11
+nixpgs-unstable.terraform_0_14  terraform-0.14.11
+nixpkgs.terraform_0_14          terraform-0.14.11
+nixos.terraform_0_15            terraform-0.15.5
+nixpgs-unstable.terraform_0_15  terraform-0.15.5
+nixpkgs.terraform_0_15          terraform-0.15.5
+nixos.terraform                 terraform-1.2.3
+nixpgs-unstable.terraform       terraform-1.2.3
+nixpkgs.terraform               terraform-1.2.3
 ```
 
 

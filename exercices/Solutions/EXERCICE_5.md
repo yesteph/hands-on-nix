@@ -1,4 +1,4 @@
-# Exercice 4 - Nix shell avec direnv
+# Exercice 5 - Nix shell avec direnv
 
 Dans cet exercice, nous allons voir comment coupler le Nix shell avec l'outil direnv pour faciliter le switch de projet à projet.
 

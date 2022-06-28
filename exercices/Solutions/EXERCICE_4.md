@@ -1,6 +1,6 @@
 # Exercice 4 - Nix shell
 
-Dans cet exercice, nous allons explorer les fonctionnalités offertes par le Nix shell.
+Dans cet exercice, nous allons explorer les fonctionnalités offertes par le shell Nix.
 
 ## Bobby
 
@@ -24,7 +24,16 @@ cd charlie
 
 # vim shell.nix
 with (import <nixpkgs> {});
-mkShell { buildInputs = [ python310 python310Packages.pip ]; }
+
+mkShell { 
+  buildInputs = [ python310 python310Packages.pip ]; 
+
+  shellHook = ''
+    export PIP_PREFIX=$(pwd)/_build/pip_packages
+    export PYTHONPATH="$PIP_PREFIX/${python310.sitePackages}:$PYTHONPATH"
+    export PATH="$PIP_PREFIX/bin:$PATH"
+  '';
+}
 
 
 nix-shell
@@ -34,7 +43,7 @@ python --version
 
 Vérifier la bonne exécution de l'application
 ```bash
-pip install -r requirements.txt
+pip install --user -r requirements.txt
 
 python charlie.py
 ```

@@ -1,4 +1,4 @@
-# Exercice 4 - Niv
+# Exercice 6 - Niv
 
 Dans cet exercice, nous allons voir comment utliser l'outil Niv pour gérer nos dépendances Nix
 
@@ -31,12 +31,19 @@ Adapter ce fichier pour charger les dépendances définies dans `nix/sources.jso
 { sources ? import ./nix/sources.nix }: # import the sources
 let
   pkgs = import sources.nixpkgs { }; # define variable for nixpkgs
-  inputs = [
+in
+pkgs.mkShell { 
+  buildInputs =  [
     pkgs.python310
     pkgs.python310Packages.pip
-  ];
-in
-pkgs.mkShell { buildInputs = inputs; }
+  ]; 
+    
+  shellHook = ''
+    export PIP_PREFIX=$(pwd)/_build/pip_packages
+    export PYTHONPATH="$PIP_PREFIX/${pkgs.python310.sitePackages}:$PYTHONPATH"
+    export PATH="$PIP_PREFIX/bin:$PATH"
+  '';
+}
 ```
 
 ## Mettre à jour une dépendance

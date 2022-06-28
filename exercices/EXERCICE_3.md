@@ -16,9 +16,10 @@ Que remarque-t-on ? Pourquoi ?
 ## Ajouter un nouveau channel
 
 
-Nous allons maintenant ajouter un nouveau channel
+Nous allons maintenant ajouter deux nouveaux channels
 ```bash
-nix-channel --add https://nixos.org/channels/nixos-21.11 nixos
+nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
 nix-channel --update
 ```
 

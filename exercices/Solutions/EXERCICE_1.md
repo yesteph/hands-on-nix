@@ -27,7 +27,7 @@ nix-env -qaP python3
 
 Installer Python 3.9 et pip
 ```bash
-nix-env -iA nixpkgs.python39 nixpkgs.python39Packages.pip
+nix-env -iA nixpkgs.python3Full nixpkgs.python39Packages.pip
 ```
 
 Installer Git

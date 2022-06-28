@@ -13,7 +13,7 @@ ssh admin@<IP> # le mot de passe vous est fournit par les speakers
 
 Installer Nix sur l'ensemble du système:
 ```bash
-sh <(curl -L https://releases.nixos.org/nix/nix-2.8.0/install) --daemon
+sh <(curl -L https://releases.nixos.org/nix/nix-2.9.1/install) --daemon
 ```
 
 Relancer la session SSH

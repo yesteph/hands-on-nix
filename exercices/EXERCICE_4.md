@@ -1,6 +1,6 @@
 # Exercice 4 - Nix shell
 
-Dans cet exercice, nous allons explorer les fonctionnalités offertes par le Nix shell.
+Dans cet exercice, nous allons explorer les fonctionnalités offertes par le shell Nix.
 
 ## Bobby
 

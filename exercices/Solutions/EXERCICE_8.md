@@ -88,7 +88,6 @@ ls /tmp/http-server
 Tester son bon fonctionnement en utilisant Podman et en lançant un conteneur à partir de cette image.
 ```bash
 # Installer Podman
-#nix-env -iA nixpkgs.podman
 sudo -i
 apt update
 apt install podman
