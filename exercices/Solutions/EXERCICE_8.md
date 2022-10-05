@@ -15,7 +15,7 @@ pkgs.python3Packages.buildPythonApplication {
   pname = "bobby";
   version = "1.0";
   src = ./.;
-  propagatedBuildInputs = [ pkgs.python39Packages.flask ];
+  propagatedBuildInputs = [ pkgs.python310Packages.flask ];
 }
 ```
 

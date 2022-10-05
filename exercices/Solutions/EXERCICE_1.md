@@ -27,7 +27,7 @@ nix-env -qaP python3
 
 Installer Python 3.9 et pip
 ```bash
-nix-env -iA nixpkgs.python3Full nixpkgs.python39Packages.pip
+nix-env -iA nixpkgs.python3Full nixpkgs.python310Packages.pip
 ```
 
 Installer Git
@@ -42,12 +42,12 @@ nix-env -iA nixpkgs.jq
 
 Installer Terraform
 ```bash
-nix-env -iA nixpkgs.terraform_0_15
+nix-env -iA nixpkgs.terraform
 ```
 
 Il est également possible de tout faire en une seule commande
 ```bash
-nix-env -iA nixpkgs.python39 nixpkgs.python39Packages.pip nixpkgs.git nixpkgs.jq nixpkgs.terraform_0_15
+nix-env -iA nixpkgs.python39 nixpkgs.python39Packages.pip nixpkgs.git nixpkgs.jq nixpkgs.terraform
 ```
 
 Cloner son fork

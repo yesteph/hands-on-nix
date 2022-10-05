@@ -14,7 +14,7 @@ nix repl>
 #  une division doit donc être
 builtins.div 9 3
 # Les chaines de caractères sont souvent double quotées
-jaime = "breizhcamp"
+jaime = "devfest"
 ```
 
 Les chaines de caractères peuvent être indentées avec deux simples quotes.
@@ -44,13 +44,13 @@ Les expressions Nix utilisent massivement les attribute sets.
 
 ```sh
 nix repl
-msg = { event = "University"; a-b = "baz"; "123" = "an int key"; }
+msg = { event = "Hands-on"; a-b = "baz"; "123" = "an int key"; }
 # Selection d'attribut pointée .
 msg.event
 msg.a-b
 msg."123"
 # Les attribute sets peuvent être récursifs!!
-rec { category = "University"; conference = "Breizhcamp"; msg = "Welcome to ${category} ${conference}";}    
+rec { category = "Hands-on"; conference = "Devfest"; msg = "Welcome to ${category} ${conference}";}    
 ```
 
 # Let 
@@ -65,7 +65,7 @@ let a = 4; b = a + 5; in b
 
 Permet d'inclure un attribute set dans le scope courant.
 ```sh
-mySet = { conference = "Devoxx";  title = "Nix Hands-on"; }
+mySet = { conference = "Devfest";  title = "Nix Hands-on"; }
 with mySet; conference + title
 ```
 

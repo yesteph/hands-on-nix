@@ -33,18 +33,12 @@ Nous pouvons maintenant chercher des paquets dans des channels spécifiques.
 Chercher les versions disponibles du paquet Terraform dans deux channels différents.
 ```bash
 nix-env -qaP terraform
-nixos.terraform_0_13            terraform-0.13.7
-nixpgs-unstable.terraform_0_13  terraform-0.13.7
-nixpkgs.terraform_0_13          terraform-0.13.7
-nixos.terraform_0_14            terraform-0.14.11
-nixpgs-unstable.terraform_0_14  terraform-0.14.11
-nixpkgs.terraform_0_14          terraform-0.14.11
-nixos.terraform_0_15            terraform-0.15.5
-nixpgs-unstable.terraform_0_15  terraform-0.15.5
-nixpkgs.terraform_0_15          terraform-0.15.5
-nixos.terraform                 terraform-1.2.3
-nixpgs-unstable.terraform       terraform-1.2.3
-nixpkgs.terraform               terraform-1.2.3
+nixos.terraform_0_13        terraform-0.13.7
+nixos.terraform_0_14        terraform-0.14.11
+nixos.terraform_0_15        terraform-0.15.5
+nixos.terraform             terraform-1.2.3
+nixpkgs.terraform           terraform-1.3.1
+nixpkgs-unstable.terraform  terraform-1.3.1
 ```
 
 
