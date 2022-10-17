@@ -1,52 +1,45 @@
-# Exercice 4 - Nix shell
+# Exercice 4 - Nix shell avec direnv
 
-Dans cet exercice, nous allons explorer les fonctionnalités offertes par le shell Nix.
+Dans cet exercice, nous allons voir comment coupler le Nix shell avec l'outil direnv pour faciliter le switch de projet à projet.
 
 ## Bobby
 
-Inspecter le contenu fichier `shell.nix` dans le dossier `bobby`.
-
-Que fait ce fichier ?
-
-Lancer un shell Nix et vérifier la version de Python disponible:
+Installer direnv
 ```bash
-cd bobby
-nix-shell
+nix-env -iA nixpkgs.direnv
+```
 
-python --version
+Configurer nix avec direnv pour Bobby
+```bash
+echo "use_nix" >> bobby/.envrc
+
+eval "$(direnv hook bash)"
+
+cd bobby && direnv allow
 ```
 
 ## Charlie
 
 Faites maintenant le même exercice pour l'application `charlie`.
+
 ```bash
-cd charlie
+echo "use_nix" >> charlie/.envrc
 
-# vim shell.nix
-with (import <nixpkgs> {});
-
-mkShell { 
-  buildInputs = [ python310 python310Packages.pip ]; 
-
-  shellHook = ''
-    export PIP_PREFIX=$(pwd)/_build/pip_packages
-    export PYTHONPATH="$PIP_PREFIX/${python310.sitePackages}:$PYTHONPATH"
-    export PATH="$PIP_PREFIX/bin:$PATH"
-  '';
-}
-
-
-nix-shell
-
-python --version
+cd charlie && direnv allow
 ```
 
-Vérifier la bonne exécution de l'application
+Une fois ceci fait, vérifier la version courante de Python et sa localisation en se déplaçant dans l'arborescence
+
 ```bash
-pip install --user -r requirements.txt
+# In charlie directory
+python --version # Python 3.10
+which python
 
-python charlie.py
+cd ../bobby
+python --version # Python 3.9
+which python
+
+cd
+python --version # Python 3 (profil Nix)
+which python
 ```
-
-
->**Attention:** la version de Python requise est différente (Python 3.10)

@@ -1,36 +1,25 @@
-# Exercice 3 - Channels Nix
+# Exercice 3 - Nix shell
 
-Dans cet exercice, nous allons comprendre comment fonctionnent les channels Nix.
+Dans cet exercice, nous allons explorer les fonctionnalités offertes par le shell Nix.
 
-## Lister les channels courants
+## Bobby
 
-Lister les channels déjà installés:
+Inspecter le contenu fichier `shell.nix` dans le dossier `bobby`.
+
+Que fait ce fichier ?
+
+Lancer un shell Nix et vérifier la version de Python disponible :
 ```bash
-nix-channel --list
+cd bobby
+nix-shell
+
+python --version
 ```
 
-Que remarque-t-on ? Pourquoi ?
+## Charlie
 
+Faites maintenant le même exercice pour l'application `charlie`.
 
+Une fois ceci fait, vérifier la bonne exécution de l'application.
 
-## Ajouter un nouveau channel
-
-
-Nous allons maintenant ajouter deux nouveaux channels
-```bash
-nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-nix-channel --update
-```
-
-Lister à nouveau les channels pour voir la différence
-
-
-## Recherche de paquet
-
-Nous pouvons maintenant chercher des paquets dans des channels spécifiques.
-Voir la commande `nix-env -qaP <PACKAGE> -f '<CHANNEL_NAME>'`
-
-Chercher les versions disponibles du paquet Terraform dans deux channels différents.
-
-Que pouvons nous noter ?
+>**Attention:** la version de Python requise est différente (Python 3.10)

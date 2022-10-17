@@ -1,48 +1,52 @@
-# Exercice 3 - Channels Nix
+# Exercice 3 - Nix shell
 
-Dans cet exercice, nous allons comprendre comment fonctionnent les channels Nix.
+Dans cet exercice, nous allons explorer les fonctionnalités offertes par le shell Nix.
 
-## Lister les channels courants
+## Bobby
 
-Lister les channels déjà installés:
+Inspecter le contenu fichier `shell.nix` dans le dossier `bobby`.
+
+Que fait ce fichier ?
+
+Lancer un shell Nix et vérifier la version de Python disponible:
 ```bash
-nix-channel --list
+cd bobby
+nix-shell
+
+python --version
 ```
 
-Que remarque-t-on ? Pourquoi ?
+## Charlie
 
-
-
-## Ajouter un nouveau channel
-
-
-Nous allons maintenant ajouter deux nouveaux channels
+Faites maintenant le même exercice pour l'application `charlie`.
 ```bash
-nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-nix-channel --update
+cd charlie
+
+# vim shell.nix
+with (import <nixpkgs> {});
+
+mkShell { 
+  buildInputs = [ python310 python310Packages.pip ]; 
+
+  shellHook = ''
+    export PIP_PREFIX=$(pwd)/_build/pip_packages
+    export PYTHONPATH="$PIP_PREFIX/${python310.sitePackages}:$PYTHONPATH"
+    export PATH="$PIP_PREFIX/bin:$PATH"
+  '';
+}
+
+
+nix-shell
+
+python --version
 ```
 
-Lister à nouveau les channels pour voir la différence
-
-
-## Recherche de paquet
-
-Nous pouvons maintenant chercher des paquets dans des channels spécifiques.
-
-Chercher les versions disponibles du paquet Terraform dans deux channels différents.
+Vérifier la bonne exécution de l'application
 ```bash
-nix-env -qaP terraform
-nixos.terraform_0_13        terraform-0.13.7
-nixos.terraform_0_14        terraform-0.14.11
-nixos.terraform_0_15        terraform-0.15.5
-nixos.terraform             terraform-1.2.3
-nixpkgs.terraform           terraform-1.3.1
-nixpkgs-unstable.terraform  terraform-1.3.1
+pip install --user -r requirements.txt
+
+python charlie.py
 ```
 
 
-Que pouvons nous noter ?
-
-> En fonction du channel, les versions d'un même paquet peuvent varier.
-> Le paquet peut porter le même nom mais son contenu peut-être totalement diffénret.
+>**Attention:** la version de Python requise est différente (Python 3.10)

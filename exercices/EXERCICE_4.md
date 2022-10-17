@@ -1,25 +1,25 @@
-# Exercice 4 - Nix shell
+# Exercice 4 - Nix shell avec direnv
 
-Dans cet exercice, nous allons explorer les fonctionnalités offertes par le shell Nix.
+Dans cet exercice, nous allons voir comment coupler le Nix shell avec l'outil direnv pour faciliter le switch de projet à projet.
 
 ## Bobby
 
-Inspecter le contenu fichier `shell.nix` dans le dossier `bobby`.
-
-Que fait ce fichier ?
-
-Lancer un shell Nix et vérifier la version de Python disponible :
+Installer direnv
 ```bash
-cd bobby
-nix-shell
+nix-env -iA nixpkgs.direnv
+```
 
-python --version
+Configurer nix avec direnv pour Bobby
+```bash
+echo "use_nix" >> bobby/.envrc
+
+eval "$(direnv hook bash)"
+
+cd bobby && direnv allow
 ```
 
 ## Charlie
 
 Faites maintenant le même exercice pour l'application `charlie`.
 
-Une fois ceci fait, vérifier la bonne exécution de l'application.
-
->**Attention:** la version de Python requise est différente (Python 3.10)
+Une fois ceci fait, vérifier la version courante de Python et sa localisation en se déplaçant dans l'arborescence
